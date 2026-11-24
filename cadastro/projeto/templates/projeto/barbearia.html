@@ -1,0 +1,38 @@
+{% extends 'projeto/base.html' %}
+{% load static %}
+{% block titulo %}Barbearia{% endblock %}
+{% block conteudo %}
+<header class="topo">
+    <span>Olá, {{ user.username }}!</span>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Sair</button>
+    </form>
+</header>
+
+<h1 class="titulo-pagina">Barbearia</h1>
+
+<main class="pagina">
+    <section class="caixa sobre">
+        <img src="{% static 'projeto/img/barbearia.jpg' %}" alt="Barbeiro cortando o cabelo de um cliente">
+        <h2>Sobre a Barbearia</h2>
+        <p>Localizada no coração da cidade a <strong>Barbearia</strong> traz para o mercado inovação em cortes de cabelos.</p>
+        <p class="missao"><em>Nossa missão é: <span>"Proporcionar auto-estima e qualidade de vida aos clientes".</span></em></p>
+        <p>Oferecemos profissionais experientes e entendidos às mudanças no mundo da moda. O atendimento possui padrão de excelência e agilidade, garantindo qualidade e satisfação dos nossos clientes.</p>
+        <button type="button" class="botao-pequeno">Trabalhe conosco</button>
+    </section>
+
+    <section class="caixa beneficios">
+        <h2>Benefícios</h2>
+        <div class="beneficios-conteudo">
+            <ul>
+                <li>Atendimento aos Clientes</li>
+                <li>Espaço diferenciado</li>
+                <li>Localização</li>
+                <li>Profissionais Qualificados</li>
+            </ul>
+            <img src="{% static 'projeto/img/beneficios.jpg' %}" alt="Cliente sendo atendido na barbearia">
+        </div>
+    </section>
+</main>
+{% endblock %}

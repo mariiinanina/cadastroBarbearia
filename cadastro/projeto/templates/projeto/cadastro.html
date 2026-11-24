@@ -1,0 +1,14 @@
+{% extends 'projeto/base.html' %}
+{% block titulo %}Cadastro - Barbearia{% endblock %}
+{% block conteudo %}
+<main class="auth">
+    <h1>Barbearia</h1>
+    <h2>Criar conta</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Cadastrar</button>
+    </form>
+    <p>Já tem conta? <a href="{% url 'login' %}">Entrar</a></p>
+</main>
+{% endblock %}
